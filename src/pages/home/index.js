@@ -1,17 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Image from '@hlj/widget/ImageWithLink';
+import styled, {css} from 'styled-components';
 
-const headerImg = require('images/header.jpg');
+const Button = styled.button`
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid palevioletred;
+  color: palevioletred;
+  margin: 0.5em 1em;
+  padding: 0.25em 1em;
+
+  ${props => props.primary && css`
+    background: palevioletred;
+    color: white;
+  `}
+`;
+
+const Container = styled.div`
+  text-align: center;
+`;
 
 class Homepage extends React.Component {
   render() {
     return (
-      <main>
-        <Image src={headerImg} />
-        <h1>You made it!</h1>
-        <div>edit me in <pre><code>src/pages/home/index.js</code></pre></div>
-      </main>
+      <Container>
+        <Button>Normal Button</Button>
+        <Button primary>Primary Button</Button>
+      </Container>
     );
   }
 }
