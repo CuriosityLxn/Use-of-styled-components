@@ -68,6 +68,17 @@ class Homepage extends React.Component {
     logArgs`a String`;
     logArgs(`what a ${adj} day!`);
     logArgs`what a ${adj} day!`;
+    logArgs(`Test ${() => console.log('test')}`);
+    logArgs`Test ${() => console.log('test')}`;
+
+    const execFuncArgs = (...args) => args.forEach(args => {
+      if (typeof args === 'function') args();
+    });
+    execFuncArgs('a', 'b');
+    execFuncArgs(() => console.log('this is a function'));
+    execFuncArgs('a string', () => console.log('another function'));
+
+    execFuncArgs(`Hi, ${() => { console.log('花间!');}}`);
     return (
       <Container>
         <Button>Normal Button</Button>
